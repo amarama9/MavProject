@@ -40,26 +40,36 @@ public class DatePickerWidget   {
 	public void selNthDayFromToday(int n) {
 
 	
-
+		int count = -1;
+		boolean foundToday = false;
+		boolean daySelected = false;
+		
 		for (int i = 0; i < calRows.size(); i++) {
 
-			boolean foundToday = false;
-			boolean nextMonth = false;
 			boolean greyDay = false;
-			boolean daySelected = false;
-			int count = -1;
+			boolean yesterday =false;
+			boolean nextMonth = false;
+
 
 			List<WebElement> coloumns = calRows.get(i).findElements(
 					By.tagName("td"));
-
+            
+			int colCount = 0;
 			for (WebElement coloumn : coloumns) {
-
+				
+				colCount++;
+				System.out.println(colCount);
+				
 				if (nextMonth) {
 
 					if ((coloumn.getAttribute("class")
 							.contains("ui-datepicker-other-month"))) {
 						greyDay = true;
-					} else {
+					}else if((coloumn.getAttribute("class")
+							.contains("ui-datepicker-unselectable"))){
+						yesterday=true;
+					}else {
+					
 						greyDay = false;
 					}
 
@@ -68,7 +78,7 @@ public class DatePickerWidget   {
 					foundToday = true;
 				}
 
-				if ((foundToday) && (!greyDay)) {
+				if ((foundToday) && (!greyDay)&&(!yesterday)) {
 
 					count++;
 					if ((count >= 1) && (count < n)) {
@@ -93,10 +103,13 @@ public class DatePickerWidget   {
 					}
 
 				}
-
+System.out.println("count "+count);
 				if (count == n) {
+					System.out.println(coloumn.findElement(By.tagName("a")).getText());
 					coloumn.findElement(By.tagName("a")).click();
 					daySelected = true;
+					break;
+				}else if(colCount==7){
 					break;
 				}
 
