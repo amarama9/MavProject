@@ -20,7 +20,7 @@ import com.org.mavenPro.Enums.HeadMenu;
 
 
 /**
- * @author s-amarnathlingineni
+ * @author s-amarnathlingineni 
  *
  */
 public class HeaderLinks extends GotoWebinar {
