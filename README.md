@@ -1,4 +1,4 @@
-# MavProject _ 
+# Test Automation Design Project 
 
 This project is  for academic and Design Reference purpose only
 
