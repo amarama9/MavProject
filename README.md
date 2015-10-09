@@ -1,4 +1,6 @@
-# MavProject _ This prject is  for academic and Design Reference purpose only .....
+# MavProject _ 
+
+This project is  for academic and Design Reference purpose only
 
 Instructions to Run Test with in the Project.
 
